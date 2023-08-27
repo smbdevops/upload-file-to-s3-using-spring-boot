@@ -1,0 +1,6 @@
+amazon:
+  access-key:
+  secret-key:
+  bucket-name: jpeterson
+  endpoint-url: https://s3.us-east-1.amazonaws.com
+  region: us-east-1

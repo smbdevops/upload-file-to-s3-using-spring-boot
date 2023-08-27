@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Audio to S3</title>
+</head>
+<body>
+
+<html layout:decorate="layouts/main.html" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="container-fluid" layout:fragment="content">
+    <h1>Upload Audio Form</h1>
+    <fieldset>
+
+        <ul th:each="error: ${errors}">
+            <li th:text="${error}"></li>
+        </ul>
+
+        <form class="form needs-validation"
+              novalidate
+              th:action="@{'/'}"
+              th:method="post"
+              enctype="multipart/form-data"
+              th:object="${dto}"
+        >
+            <input type="file" accept="audio/*" name="files[]" multiple><br><br>
+            <input class="btn btn-primary btn-lg my-3" type="submit"
+                   value="upload audio to S3"/>
+        </form>
+    </fieldset>
+</div>
+
+<ul th:each="url: ${items}">
+    <li><a th:text="${url}" th:href="${url}" target="_blank">URL goes here</a></li>
+</ul>
+
+</html>
+
+</body>
+</html>
